@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enter new brand</title>
+</head>
+
+<body>
+    <h1> You're looking at Brand {{ brand.id }}, Car {{car.id}}</h1>
+    <p>
+        Brand ID: {{ brand.id}}
+        <br>
+        Brand name: {{ brand.brand_name}}
+        <br>
+        <br>
+        Car ID: {{ car.id }}
+        <br>
+        Car color: {{ car.color }}
+        <br>
+        Number of seats: {{ car.number_of_seats }}
+    </p>
+    <br>
+    <a href="{% url 'cars_and_brands:list_brands' %}">See all brands</a>
+    <br>
+    <br>
+    <a href="{% url 'cars_and_brands:edit_car' brand_id=brand.id car_id=car.id%}">Edit this car</a>
+    <br>
+    <br>
+    <a href="{% url 'cars_and_brands:list_cars' brand.id %}">See all cars of this brand</a>
+    <br>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enter new brand</title>
+</head>
+
+<body>
+    <h1> Editing Brand {{ brand.id }}, Car {{ car.id }}</h1>
+    <p>
+        ID: {{ brand.id}}
+        <br>
+        Original Name: {{ brand.brand_name}}
+        <br>
+        <br>
+        Car ID: {{ car.id }}
+        <br>
+        Original color: {{ car.color }}
+        <br>
+        Original Number of seats: {{ car.number_of_seats }}
+    </p>
+    <br>
+    <h3> Change Car's color and number of seats: </h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label> Enter new color: </label>
+        <input id="new_color" type="text" name="new_color" value="{{ new_color }}">
+        <br>
+        <label> Enter new number of seats: </label>
+        <input id="new_seat_num" type="text" name="new_seat_num" value="{{ new_seat_num }}">
+
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+    <a href="{% url 'cars_and_brands:see_car' brand_id=brand.id car_id=car.id  %}">
+        See all cars of brand {{ brand.id}}
+    </a>
+
+
+</body>
+
+</html>

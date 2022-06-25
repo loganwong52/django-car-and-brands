@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> All Cars </h1>
+    <p>
+        Brand: {{brand.id}}
+        <br>
+        Brand name: {{brand.brand_name}}
+    </p>
+    <br>
+    {% if car_list %}
+    <ul>
+        {% for car in car_list %}
+        <li>
+            <a href="{% url 'cars_and_brands:see_car' brand_id=brand.id car_id=car.id  %}">
+                ID: {{ car.id }}
+            </a>
+        </li>
+        <br>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No cars are available.</p>
+    {% endif %}
+
+    <a href="{% url 'cars_and_brands:see_brand' brand.id %}">See info for Brand {{brand.id}}</a>
+
+
+</body>
+
+</html>

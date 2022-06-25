@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enter new brand</title>
+</head>
+
+<body>
+    <h1> Enter New Car </h1>
+    <p>
+        Brand id: {{brand.id}}
+        <br>
+        Brand name: {{brand.brand_name}}
+    </p>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label> Enter new car color: </label>
+        <input id="color" type="text" name="color" value="{{ color }}">
+        <br>
+
+        <label> Enter new car seat number: </label>
+        <input id="num_seats" type="text" name="num_seats" value="{{ num_seats }}">
+        <br>
+
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+    <br>
+    <a href="{% url 'cars_and_brands:see_brand' brand.id %}">See info for Brand {{brand.id}}</a>
+
+
+    <br>
+
+
+</body>
+
+</html>
